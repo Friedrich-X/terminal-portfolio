@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #00ff00;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.terminal {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.terminal-header {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f56;
+    display: inline-block;
+}
+
+.terminal-button:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.terminal-button:nth-child(3) {
+    background-color: #27c93f;
+}
+
+.terminal-content {
+    padding: 30px;
+}
+
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+#typing-text {
+    border-right: 2px solid #00ff00;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.5em;
+}
+
+.skills-section, .contact-section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.skills-list li::before {
+    content: "> ";
+    color: #00ff00;
+}
+
+.contact-info {
+    font-size: 1.1em;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px auto;
+        padding: 10px;
+    }
+    
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+
+    .terminal-content {
+        padding: 15px;
+    }
+
+    #typing-text {
+        font-size: 1.2em;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .terminal-header {
+        padding: 8px;
+    }
+
+    .terminal-button {
+        width: 10px;
+        height: 10px;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+
+    .matrix-bg {
+        opacity: 0.05;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        margin: 5px auto;
+    }
+
+    .terminal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .skills-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+ 
+@media (min-width: 400px) and (max-width: 600px) {
+    .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.prompt {
+    color: #ff0000;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.hacker-form {
+    background-color: #0c0c0c;
+    padding: 20px;
+    border: 1px solid #00ff00;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00ff00;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    background-color: #1a1a1a;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.submit-btn {
+    background-color: #1a1a1a;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #00ff00;
+    color: #1a1a1a;
+}
+
+#terminal-output {
+    margin-top: 20px;
+    padding: 10px;
+    display: none;
+}
+
+.success {
+    color: #00ff00;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.skills-list li {
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.skills-list li:hover {
+    background-color: rgba(0, 255, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.terminal::before {
+    content: "Portfolio.exe - Security Level: Maximum";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    color: #00ff00;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #00ff00;
+    opacity: 0.5;
+}
+
+.submit-btn:active::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    margin-left: 10px;
+    animation: blink 1s infinite;
+}
+
+@media (max-width: 600px) {
+    .terminal::before {
+        font-size: 0.7em;
+        top: -20px;
+    }
+
+    .skills-list li {
+        padding: 8px 10px;
+    }
+
+    .prompt {
+        font-size: 0.9em;
+    }
+}
+
+.project-item {
+    cursor: pointer;
+    position: relative;
+}
+
+.project-item:hover {
+    background-color: rgba(0, 255, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #1a1a1a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #00ff00;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #00ff00;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff3333;
+}
+
+#project-details {
+    padding: 10px;
+    line-height: 1.6;
+}
+
+.project-tech {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #00ff00;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+} 

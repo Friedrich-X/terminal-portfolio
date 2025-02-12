@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hacker Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-button"></span>
+                <span class="terminal-button"></span>
+                <span class="terminal-button"></span>
+            </div>
+            
+            <div class="terminal-content">
+                <div class="welcome-section">
+                    <span class="prompt">visitor@portfolio:~$</span>
+                    <div id="typing-text"></div>
+                </div>
+
+                <div class="skills-section">
+                    <span class="prompt">visitor@portfolio:~$</span> cat skills.txt
+                    <h2>> Headline</h2>
+                    <ul class="skills-list">
+                        <li>Point 1</li>
+                        <li>Point 2</li>
+                        <li>Point 3</li>
+                        <li>Point 4</li>
+                        <li>Point 5</li>
+                    </ul>
+
+                    <h2 class="mt-4">> Headline</h2>
+                    <ul class="skills-list">
+                        <li class="project-item" data-project="ecommerce">Point 1</li>
+                        <li class="project-item" data-project="portfolio">Point 2</li>
+                        <li class="project-item" data-project="weather">Point 3</li>
+                    </ul>
+                </div>
+
+                <div class="contact-section">
+                    <span class="prompt">visitor@portfolio:~$</span> ./contact.sh
+                    <h2>> Headline</h2>
+                    <form id="contact-form" class="hacker-form">
+                        <div class="form-group">
+                            <label><span class="prompt">$</span> Content:</label>
+                            <input type="text" name="name" placeholder="Content" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="prompt">$</span> Content:</label>
+                            <input type="email" name="email" placeholder="Content" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="prompt">$</span> Content:</label>
+                            <textarea name="message" placeholder="Content" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span class="prompt">$</span> Content
+                        </button>
+                    </form>
+                    <div id="terminal-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="prompt">project@portfolio:~$</span> cat project_details.txt
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="project-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
